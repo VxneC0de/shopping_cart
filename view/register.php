@@ -141,7 +141,7 @@ https://templatemo.com/tm-559-zay-shop
             <form class="col-md-9 m-auto" method="post" role="form" action="../action.php">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">user Name</label>
+                        <label for="inputname">User Name</label>
                         <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
                     </div>
                     <div class="form-group col-md-6 mb-3">
