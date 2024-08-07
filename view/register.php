@@ -142,8 +142,9 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputname">User Name</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="User name">
                     </div>
+
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputemail">Email</label>
                         <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
@@ -154,29 +155,24 @@ https://templatemo.com/tm-559-zay-shop
 
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputname">Password</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                        <input type="password" class="form-control mt-1" id="name password" name="name" placeholder="Password">
                     </div>
 
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputemail">Confirm Password</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        <input type="password" class="form-control mt-1" id="email password_con" name="email" placeholder="Confirm Password">
                     </div>
 
                 </div>
 
-                <div class="mb-3">
-                    <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
-                </div>
-                <div class="mb-3">
-                    <label for="inputmessage">Message</label>
-                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
-                </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+                        <button type="submit" class="btn btn-success btn-lg px-3">Register</button>
                     </div>
                 </div>
+
+                <input type="hidden" name="hidden" value="0">
+
             </form>
         </div>
     </div>
