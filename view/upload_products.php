@@ -128,9 +128,9 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Register</h1>
+            <h1 class="h1">Upload Products</h1>
             <p>
-                Complete the form.
+                Complete the form to upload the product.
             </p>
         </div>
     </div>
@@ -138,29 +138,35 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Contact -->
     <div class="container py-5">
         <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form" action="../action.php">
+            <form class="col-md-9 m-auto" method="post" role="form" action="../action.php"  enctype="multipart/form-data">
                 <div class="row">
+
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">User Name</label>
-                        <input type="text" class="form-control mt-1" id="name" name="nick" placeholder="User name">
+                        <label for="inputname">Product Name</label>
+                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Enter the product name">
                     </div>
 
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">Email</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        <label for="inputemail">Image</label>
+                        <input type="file" class="form-control mt-1" id="email" name="image" placeholder="Image">
                     </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputmessage">Product Description</label>
+                    <textarea class="form-control mt-1" id="message" name="description" placeholder="Enter the product description" rows="8"></textarea>
                 </div>
 
                 <div class="row">
 
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Password</label>
-                        <input type="password" class="form-control mt-1" id="name" name="password" placeholder="Password">
+                        <label for="inputname">Product Price</label>
+                        <input type="text" class="form-control mt-1" id="name" name="price" placeholder="Enter the product price">
                     </div>
 
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">Confirm Password</label>
-                        <input type="password" class="form-control mt-1" id="email password_con" name="password_confirm" placeholder="Confirm Password">
+                        <label for="inputemail">Stocktaking</label>
+                        <input type="text" class="form-control mt-1" id="email" name="inventory" placeholder="Enter the product quantity">
                     </div>
 
                 </div>
@@ -171,7 +177,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                 </div>
 
-                <input type="hidden" name="hidden" value="1">
+                <input type="hidden" name="hidden" value="2">
 
             </form>
         </div>
