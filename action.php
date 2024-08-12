@@ -41,7 +41,7 @@ switch($hidden){
             };
 
             move_uploaded_file($file, '../../php3_fotos/'.$max);
-            $ima = '../../php3_fotos/'.$max;
+            $ima = '../../../php3_fotos/'.$max;
         };
         $inse = "INSERT INTO products(name_products, description, image, price, amount, status) VALUES ('$name', '$description', '$ima', '$price', '$inventory', '0')";
         $que = pg_query($connection, $inse);
