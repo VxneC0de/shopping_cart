@@ -12,14 +12,20 @@ switch($hidden){
         break;
 
     case 2:
-        $file = $_FILES['image']['name']['tmp_name'];
-        $type = $_FILE['image']['type'];
+        $file = $_FILES['image']['tmp_name'];
+        $type = $_FILES['image']['type'];
 
         if(strpos($type, "gif") || strpos($type, "jpeg") || strpos($type, "jpg") || strpos($type, "png")){
             $sql = "select max(id_products) from products";
             $result = pg_query($connection, $sql);
-            $row = pg_fetch_assoc($result);
-            $max = $row[0]+1;
+            $row = pg_fetch_array($result);
+
+            if (isset($row[0])){
+                $max = $row[0]+1;
+            }else{
+                $max = 1;
+            };
+            
             $ext = getimagesize($file);
 
             if($ext[2]==1){
@@ -34,9 +40,11 @@ switch($hidden){
                 $max = $max.".png";
             };
 
-            move_uploaded_file($file, '../../php3_fotos/'.$file);
+            move_uploaded_file($file, '../../php3_fotos/'.$max);
+            $ima = '../../php3_fotos/'.$max;
         };
-
+        $inse = "INSERT INTO products(name_products, description, image, price, amount, status) VALUES ('$name', '$description', '$ima', '$price', '$inventory', '0')";
+        $que = pg_query($connection, $inse);
 };
 
 ?>
