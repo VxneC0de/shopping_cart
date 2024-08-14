@@ -207,11 +207,11 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="<?php echo $row[3]; ?>">
+                            <img class="card-img rounded-0 img-fluid" style="width:300px;height:400px;" src="<?php echo $row[3]; ?>">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.php?indice=<?php echo $row[0]; ?>"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
@@ -237,7 +237,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <i class="text-muted fa fa-star"></i>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0"><?php echo $row[4]; ?></p>
+                                <p class="text-center mb-0"><?php echo number_format($row[4], 2, ",", ".")." $"; ?></p>
                             </div>
                         </div>
                     </div>
