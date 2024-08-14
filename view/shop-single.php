@@ -286,8 +286,8 @@ https://templatemo.com/tm-559-zay-shop
                                 <li>Excepteur sint</li>
                             </ul>
 
-                            <form action="action.php" method="POST">
-                                <input type="hidden" name="indice" value="'<?php echo $row[0]; ?>'">
+                            <form action="../action.php" method="POST">
+                                <input type="hidden" name="indice" value="<?php echo $row[0]; ?>">
                                 <input type="hidden" name="hidden" value="3">
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">

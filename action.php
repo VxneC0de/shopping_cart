@@ -2,8 +2,8 @@
 
 include "connection.php";
 extract($_POST);
-$date=date("Y-m-d");
-$hour=date("H:i:s");
+$fecha = date("Y-m-d");
+$hora = date("h:i:s A");
 
 switch($hidden){
     case 1:
@@ -51,8 +51,9 @@ switch($hidden){
 
     case 3:
 
-        $inseTwo = "INSERT INTO cart(id_users_cart, id_products_cart, amount_cart, date_cart, hour_cart, status) VALUES ('1', '$indice', '$product_quanity', '$date', '$hour', '0')";
-        $queTwo = pg_query($connection, $inseTwo);
+        $query = "INSERT INTO cart (id_users_cart, id_products_cart, amount_cart, date_cart, hour_cart, status) VALUES ('1', '$indice', '$product_quanity', '$fecha', '$hora', '0')";
+        // EJECUTAR LA CONSULTA
+        $consulta = pg_query($connection, $query);
 
         break;
 };
