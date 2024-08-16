@@ -2,6 +2,7 @@
 
 include "connection.php";
 extract($_POST);
+extract($_GET);
 $fecha = date("Y-m-d");
 $hora = date("h:i:s A");
 
@@ -52,9 +53,40 @@ switch($hidden){
     case 3:
 
         $query = "INSERT INTO cart (id_users_cart, id_products_cart, amount_cart, date_cart, hour_cart, status) VALUES ('1', '$indice', '$product_quanity', '$fecha', '$hora', '0')";
+
         // EJECUTAR LA CONSULTA
         $consulta = pg_query($connection, $query);
 
+        break;
+
+    case 4:
+
+        $queryLogin = "SELECT id, email, nick FROM users WHERE password = MD5('$passwordLogin') AND nick ='$loginData' or email = '$loginData'";
+
+        $conne=pg_query($connection, $queryLogin);
+
+        if($v = pg_fetch_array($conne)){
+        session_start();
+        $_SESSION['who'] = $v[0];
+        $_SESSION['nick'] = $v[2];
+        $_SESSION['email'] = $v[1];
+
+        header("location:./view/index.php");
+
+        }else{
+        header("location:./view/login.php?answer=5");
+        };
+
+        break;
+
+    case 5:
+
+        session_start();
+        
+        session_unset();
+        session_destroy();
+        header("location:./view/index.php");
+        
         break;
 };
 
