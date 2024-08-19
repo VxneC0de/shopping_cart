@@ -137,6 +137,8 @@ https://templatemo.com/tm-559-zay-shop
             <?php 
             include "../connection.php";
 
+            $total_subprice = 0;
+
             $sql="select cart.id_cart, products.name_products, cart.amount_cart, products.price from cart, products where products.id_products=cart.id_products_cart";
 
             $result = pg_query($connection, $sql);
@@ -154,17 +156,37 @@ https://templatemo.com/tm-559-zay-shop
                         <tr>
                             <td><?php echo $row[1]; ?></td>
                             <td><?php echo $row[2]; ?></td>
-                            <td><?php echo $row[3]; ?></td>
-                            <td><?php echo $subprice=$row[2]*$row[3]; ?></td>
+                            <td><?php echo number_format($row[3], 2, ",", ".")." $"; ?></td>
+                            <td><?php echo number_format($subprice=$row[2]*$row[3], 2, ",", ".")." $"; ?></td>
                         </tr>
-                    <?php } ?>
+                    <?php
+                    $total_subprice = $total_subprice + $subprice; } 
+                    ?>
                 </table>
                 
             </div>
 
             <div class="col-lg-4">
 
-                        
+                <table class="table">
+                    <tr>
+                        <td>Subtotal</td>
+                        <td><?php echo number_format($total_subprice, 2, ",", ".")." $"; ?></td>
+                    </tr>
+                    <tr>
+                        <td>I.V.A</td>
+                        <td><?php echo number_format($iva = $subprice*0.16, 2, ",", ".")." $"; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><?php echo number_format($total = $subprice+$iva, 2, ",", ".")." $"; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Pay</button>
+                        </td>
+                    </tr>
+                </table>
 
             </div>
         </div>
