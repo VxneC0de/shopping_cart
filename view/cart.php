@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -64,13 +65,13 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="cart.php">Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="shop.php">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
@@ -137,9 +138,9 @@ https://templatemo.com/tm-559-zay-shop
             <?php 
             include "../connection.php";
 
-            $total_subprice = 0;
+            $total_subprice = 0; 
 
-            $sql="select cart.id_cart, products.name_products, cart.amount_cart, products.price from cart, products where products.id_products=cart.id_products_cart";
+            $sql="select cart.id_cart, products.name_products, cart.amount_cart, products.price from cart, products where products.id_products=cart.id_products_cart and cart.id_users_cart=$_SESSION[who]";
 
             $result = pg_query($connection, $sql);
             ?>

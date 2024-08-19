@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "connection.php";
 extract($_POST);
 extract($_GET);
@@ -50,12 +50,13 @@ switch($hidden){
         $que = pg_query($connection, $inse);
         break;
 
-    case 3:
+    case 3: 
 
-        $query = "INSERT INTO cart (id_users_cart, id_products_cart, amount_cart, date_cart, hour_cart, status) VALUES ('1', '$indice', '$product_quanity', '$fecha', '$hora', '0')";
+        $query = "INSERT INTO cart (id_users_cart, id_products_cart, amount_cart, date_cart, hour_cart, status) VALUES ('$_SESSION[who]', '$indice', '$product_quanity', '$fecha', '$hora', '0')";
 
         // EJECUTAR LA CONSULTA
         $consulta = pg_query($connection, $query);
+        header("location:./view/cart.php");
 
         break;
 
@@ -66,7 +67,7 @@ switch($hidden){
         $conne=pg_query($connection, $queryLogin);
 
         if($v = pg_fetch_array($conne)){
-        session_start();
+        //session_start();
         $_SESSION['who'] = $v[0];
         $_SESSION['nick'] = $v[2];
         $_SESSION['email'] = $v[1];

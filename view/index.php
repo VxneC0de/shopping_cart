@@ -68,7 +68,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="cart.php">Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="shop.php">Shop</a>
